@@ -2,8 +2,6 @@ name: CI and Manual Staging Deployment
 
 on:
   push:
-    branches:
-      - '*'
 
 jobs:
   lint:
