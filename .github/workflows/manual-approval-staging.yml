@@ -3,6 +3,9 @@ name: CI and Manual Staging Deployment
 on:
   push:
 
+  pull_request:
+    types: [opened, synchronize]
+
 jobs:
   lint:
     runs-on: ubuntu-latest
