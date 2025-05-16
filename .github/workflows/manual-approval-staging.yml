@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Run Linter
         run: echo "Lint job successful"
-      - name: Run Test
+      - name: Run Test 2
         run: echo "Lint job successful"
 
   deploy_staging:
