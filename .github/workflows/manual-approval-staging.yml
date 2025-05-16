@@ -1,0 +1,31 @@
+name: CI and Manual Staging Deployment
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run Linter
+        run: echo "Lint job successful"
+
+  deploy_staging:
+    needs: lint
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    environment:
+      name: staging
+      url: https://staging.example.com # Replace with your actual staging URL
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Manual approval for staging
+        run: echo "Deployment to staging approved and executed."
+        # This step is a placeholder.
+        # In a real scenario, you would have your deployment script here.
+        # The manual approval is configured in the repository settings for the 'staging' environment.
